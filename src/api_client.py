@@ -108,13 +108,20 @@ class RemnawaveAPI:
             "username": panel_username,
             "telegramId": telegram_id,
             "expireAt": expire_at,
-            "trafficLimit": 15 * 1024 * 1024 * 1024,  # 15 ГБ в байтах
+            "trafficLimitBytes": settings.TRAFFIC_LIMIT_GB * 1024 * 1024 * 1024,  # ГБ в байтах
             "trafficLimitStrategy": "DAY",  # Сброс каждый день
-            "tags": [settings.USER_TAG],
-            "externalSquad": settings.EXTERNAL_SQUAD,
-            "internalSquad": settings.INTERNAL_SQUAD,
-            "hwidLimit": settings.HWID_LIMIT
+            "tag": settings.USER_TAG,  # Одиночное значение, не массив
+            "hwidDeviceLimit": settings.HWID_LIMIT
         }
+        
+        # Добавляем squad UUID если они указаны в конфиге
+        # Примечание: EXTERNAL_SQUAD и INTERNAL_SQUAD должны быть UUID в .env
+        if settings.EXTERNAL_SQUAD:
+            user_data["externalSquadUuid"] = settings.EXTERNAL_SQUAD
+        
+        if settings.INTERNAL_SQUAD:
+            # activeInternalSquads это массив UUID
+            user_data["activeInternalSquads"] = [settings.INTERNAL_SQUAD]
         
         logger.info(f"Creating user in panel: {panel_username} (TG ID: {telegram_id})")
         result = await self._request('POST', '/api/users', data=user_data)

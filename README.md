@@ -71,13 +71,16 @@ PANEL_API_TOKEN=your_api_token
 
 # Настройки пользователей
 USER_TAG=ADMIN
-EXTERNAL_SQUAD=WL-ADMIN-squad
-INTERNAL_SQUAD=ADMIN-WHITE-LIST
+EXTERNAL_SQUAD=uuid-of-external-squad
+INTERNAL_SQUAD=uuid-of-internal-squad
 HWID_LIMIT=1
+TRAFFIC_LIMIT_GB=15
 
 # Логирование
 LOG_LEVEL=INFO
 ```
+
+**Важно:** `EXTERNAL_SQUAD` и `INTERNAL_SQUAD` должны быть UUID squad'ов из панели Remnawave, а не их названия.
 
 ### Получение токена бота
 

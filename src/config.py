@@ -23,6 +23,7 @@ class Settings(BaseSettings):
     EXTERNAL_SQUAD: str = "WL-ADMIN-squad"
     INTERNAL_SQUAD: str = "ADMIN-WHITE-LIST"
     HWID_LIMIT: int = 1
+    TRAFFIC_LIMIT_GB: int = 15  # Лимит трафика в ГБ в день
     
     # Logging
     LOG_LEVEL: str = "INFO"
