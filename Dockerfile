@@ -19,5 +19,8 @@ COPY src/ ./src/
 # Создание директории для логов
 RUN mkdir -p /app/logs
 
+# Установка PYTHONPATH
+ENV PYTHONPATH=/app/src
+
 # Запуск бота
 CMD ["python", "src/main.py"]

@@ -6,9 +6,9 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
 
-from src.config import settings
-from src.api_client import api_client
-from src.handlers import user_handlers, group_handlers
+from config import settings
+from api_client import api_client
+from handlers import user_handlers, group_handlers
 
 
 # Настройка логирования

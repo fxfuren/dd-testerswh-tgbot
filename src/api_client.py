@@ -3,7 +3,7 @@ import asyncio
 import ssl
 from typing import Optional, Dict, Any
 from loguru import logger
-from src.config import settings
+from config import settings
 
 
 class RemnawaveAPI:

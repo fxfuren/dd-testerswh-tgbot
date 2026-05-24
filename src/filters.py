@@ -3,7 +3,7 @@
 """
 from aiogram.filters import Filter
 from aiogram.types import Message, CallbackQuery
-from src.config import settings
+from config import settings
 from typing import Union
 
 

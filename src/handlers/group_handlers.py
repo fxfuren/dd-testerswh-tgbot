@@ -2,9 +2,9 @@ from aiogram import Router, F
 from aiogram.types import ChatMemberUpdated
 from aiogram.filters import ChatMemberUpdatedFilter, KICKED, MEMBER, ADMINISTRATOR, CREATOR, RESTRICTED, LEFT
 from loguru import logger
-from src.config import settings
-from src.api_client import api_client
-from src.notifications import notify_access_revoked, notify_user_banned, notify_user_kicked
+from config import settings
+from api_client import api_client
+from notifications import notify_access_revoked, notify_user_banned, notify_user_kicked
 
 router = Router()
 

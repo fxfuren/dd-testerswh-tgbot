@@ -4,8 +4,8 @@ from aiogram import Bot
 from aiogram.enums import ParseMode
 from loguru import logger
 
-from src.config import settings
-from src.keyboards import Emoji, get_back_to_menu_keyboard
+from config import settings
+from keyboards import Emoji, get_back_to_menu_keyboard
 
 
 async def send_notification_to_user(

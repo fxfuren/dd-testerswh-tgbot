@@ -4,9 +4,9 @@ from aiogram.filters import CommandStart
 from aiogram.types import CallbackQuery, Message
 from loguru import logger
 
-from src.api_client import api_client
-from src.config import settings
-from src.keyboards import (
+from api_client import api_client
+from config import settings
+from keyboards import (
     Emoji,
     get_back_to_menu_keyboard,
     get_main_menu_keyboard,

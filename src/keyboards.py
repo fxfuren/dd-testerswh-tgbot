@@ -134,4 +134,4 @@ def get_group_join_keyboard() -> InlineKeyboardMarkup:
 
 
 # Импорт settings для использования в функциях
-from src.config import settings
+from config import settings
