@@ -40,7 +40,6 @@ services:
     read_only: true
     tmpfs:
       - /tmp
-      - /app/logs
 
 networks:
   bot-network:
