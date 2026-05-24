@@ -5,7 +5,7 @@ x-common: &common
       hard: 1048576
   restart: unless-stopped
   networks:
-    - bot-network
+    - dd-testerswh-tgbot-network
 
 x-logging: &logging
   logging:
@@ -18,7 +18,7 @@ x-env: &env
   env_file: .env
 
 services:
-  bot:
+  dd-testerswh-tgbot:
     build:
       context: .
       dockerfile: Dockerfile
@@ -42,7 +42,7 @@ services:
       - /tmp
 
 networks:
-  bot-network:
+  dd-testerswh-tgbot-network:
     name: dd-testerswh-tgbot-network
     driver: bridge
     external: false
