@@ -100,14 +100,16 @@ class RemnawaveAPI:
         """Создание пользователя в панели"""
         panel_username = f"USER_wl-{telegram_id}"
         
-        # Вычисляем дату истечения (например, через 30 дней)
+        # Вычисляем дату истечения через 2 года
         from datetime import datetime, timedelta
-        expire_at = (datetime.utcnow() + timedelta(days=30)).isoformat() + 'Z'
+        expire_at = (datetime.utcnow() + timedelta(days=730)).isoformat() + 'Z'
         
         user_data = {
             "username": panel_username,
-            "telegramId": telegram_id,  # Должен быть integer, а не string
-            "expireAt": expire_at,  # Обязательное поле
+            "telegramId": telegram_id,
+            "expireAt": expire_at,
+            "trafficLimit": 15 * 1024 * 1024 * 1024,  # 15 ГБ в байтах
+            "trafficLimitStrategy": "DAY",  # Сброс каждый день
             "tags": [settings.USER_TAG],
             "externalSquad": settings.EXTERNAL_SQUAD,
             "internalSquad": settings.INTERNAL_SQUAD,
