@@ -11,6 +11,7 @@ from keyboards import (
     get_back_to_menu_keyboard,
     get_main_menu_keyboard,
 )
+from utils import escape_html
 
 router = Router()
 
@@ -79,7 +80,7 @@ async def cmd_start(message: Message):
         del user_messages[user.id]
 
     welcome_text = (
-        f'<b><tg-emoji emoji-id="{Emoji.PARTY}">🎉</tg-emoji> Добро пожаловать, {user.first_name}!</b>\n\n'
+        f'<b><tg-emoji emoji-id="{Emoji.PARTY}">🎉</tg-emoji> Добро пожаловать, {escape_html(user.first_name)}!</b>\n\n'
         f'<tg-emoji emoji-id="{Emoji.BOT}">🤖</tg-emoji> Я бот для управления доступом к тестовой подписке.\n\n'
         f'<tg-emoji emoji-id="{Emoji.INFO}">ℹ️</tg-emoji> Для получения доступа:\n'
         f"1. Запросите ссылку для входа в группу у администратора\n"
@@ -196,7 +197,7 @@ async def callback_get_access(callback: CallbackQuery):
 
             # Отправляем уведомление в группу (без уведомления пользователю, так как оно уже будет отправлено ниже)
             user_mention = (
-                f"@{user.username}" if user.username else f"ID: {user.id}"
+                f"@{escape_html(user.username)}" if user.username else f"ID: {user.id}"
             )
             group_message = (
                 f'<b><tg-emoji emoji-id="{Emoji.PERSON_CHECK}">👤</tg-emoji> Новый пользователь</b>\n\n'

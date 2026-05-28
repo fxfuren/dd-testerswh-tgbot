@@ -6,6 +6,7 @@ from loguru import logger
 
 from config import settings
 from keyboards import Emoji, get_back_to_menu_keyboard
+from utils import escape_html
 
 
 async def send_notification_to_user(
@@ -56,7 +57,7 @@ async def notify_access_granted(
     panel_username: str = "",
 ):
     """Уведомление о предоставлении доступа"""
-    user_mention = f"@{username}" if username else f"ID: {telegram_id}"
+    user_mention = f"@{escape_html(username)}" if username else f"ID: {telegram_id}"
 
     # Уведомление пользователю
     user_message = (
@@ -84,7 +85,7 @@ async def notify_access_revoked(
     reason: str = "Исключение из группы",
 ):
     """Уведомление об отзыве доступа"""
-    user_mention = f"@{username}" if username else f"ID: {telegram_id}"
+    user_mention = f"@{escape_html(username)}" if username else f"ID: {telegram_id}"
 
     # Уведомление пользователю
     user_message = (
@@ -109,7 +110,7 @@ async def notify_user_banned(
     bot: Bot, telegram_id: int, username: Optional[str] = None
 ):
     """Уведомление о бане пользователя"""
-    user_mention = f"@{username}" if username else f"ID: {telegram_id}"
+    user_mention = f"@{escape_html(username)}" if username else f"ID: {telegram_id}"
 
     # Уведомление пользователю
     user_message = (
@@ -132,7 +133,7 @@ async def notify_user_kicked(
     bot: Bot, telegram_id: int, username: Optional[str] = None
 ):
     """Уведомление об исключении пользователя"""
-    user_mention = f"@{username}" if username else f"ID: {telegram_id}"
+    user_mention = f"@{escape_html(username)}" if username else f"ID: {telegram_id}"
 
     # Уведомление пользователю
     user_message = (
